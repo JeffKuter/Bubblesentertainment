@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Picnics & Entertainment</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD93D;
+    --orange: #FF6B35;
+    --pink: #FF4E8E;
+    --blue: #4ECDC4;
+    --purple: #A855F7;
+    --green: #5CB85C;
+    --cream: #FFFDF4;
+    --dark: #1A1A2E;
+    --text: #2D2D2D;
+    --text-light: #666;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    background: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: var(--orange);
+    letter-spacing: 1px;
+  }
+  .logo span { color: var(--pink); }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav a { text-decoration: none; color: var(--text); font-weight: 700; font-size: 0.95rem; transition: color 0.2s; }
+  nav a:hover { color: var(--orange); }
+  .nav-cta {
+    background: var(--orange);
+    color: white !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 800 !important;
+    transition: transform 0.2s, background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--pink) !important; transform: scale(1.04); color: white !important; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #FFD93D 0%, #FF6B35 40%, #FF4E8E 100%);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '🎪🎈🎠🎡🎢';
+    font-size: 5rem;
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    opacity: 0.12;
+    letter-spacing: 1rem;
+    transform: rotate(-10deg);
+    white-space: nowrap;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: white;
+    color: var(--pink);
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 4rem;
+    color: white;
+    line-height: 1.1;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+    margin-bottom: 1rem;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.92);
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+  .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: white;
+    color: var(--orange);
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(0,0,0,0.15); }
+  .btn-secondary {
+    background: rgba(255,255,255,0.25);
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.6);
+    transition: background 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.35); }
+  .hero-fun-icons {
+    font-size: 3rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    animation: float 3s ease-in-out infinite alternate;
+  }
+  @keyframes float { from { transform: translateY(0); } to { transform: translateY(-10px); } }
+
+  /* SECTION COMMONS */
+  section { padding: 4rem 2rem; }
+  .section-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    color: var(--orange);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+  .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+  /* SERVICES */
+  .services { background: white; }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .service-card {
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); }
+  .service-card .icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+  .service-card h3 { font-family: 'Fredoka One', cursive; font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.95rem; line-height: 1.6; color: var(--text-light); }
+  .s1 { background: #FFF8E7; } .s1 h3 { color: #C97A00; }
+  .s2 { background: #FFF0F5; } .s2 h3 { color: var(--pink); }
+  .s3 { background: #F0FFFE; } .s3 h3 { color: #0A9E96; }
+  .s4 { background: #FFF4F0; } .s4 h3 { color: var(--orange); }
+  .s5 { background: #F3F0FF; } .s5 h3 { color: var(--purple); }
+  .s6 { background: #F0FFF0; } .s6 h3 { color: var(--green); }
+
+  /* PACKAGES */
+  .packages { background: var(--cream); }
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .pkg-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2rem;
+    border: 3px solid transparent;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .pkg-card:hover { transform: translateY(-4px); }
+  .pkg-card.featured { border-color: var(--orange); }
+  .featured-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--orange);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .pkg-name { font-family: 'Fredoka One', cursive; font-size: 1.6rem; margin-bottom: 0.25rem; }
+  .pkg-price { font-size: 2.2rem; font-weight: 800; color: var(--orange); margin: 0.5rem 0 0.25rem; }
+  .pkg-price span { font-size: 1rem; color: var(--text-light); font-weight: 600; }
+  .pkg-desc { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.25rem; line-height: 1.5; }
+  .pkg-features { list-style: none; margin-bottom: 1.5rem; }
+  .pkg-features li { padding: 0.4rem 0; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px dashed #f0f0f0; }
+  .pkg-features li::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 1rem; }
+  .btn-pkg {
+    display: block;
+    text-align: center;
+    padding: 0.8rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+    cursor: pointer;
+    width: 100%;
+  }
+  .btn-pkg:hover { transform: scale(1.03); }
+  .btn-pkg-outline { background: transparent; border: 2.5px solid var(--orange); color: var(--orange); }
+  .btn-pkg-filled { background: var(--orange); color: white; border: none; }
+
+  /* BOOKING FORM */
+  .booking {
+    background: linear-gradient(135deg, #A855F7, #FF4E8E);
+    color: white;
+  }
+  .booking .section-title { color: white; }
+  .booking .section-label { color: rgba(255,255,255,0.8); }
+  .booking .section-sub { color: rgba(255,255,255,0.85); }
+  .form-wrap {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+  .form-group label { font-size: 0.85rem; font-weight: 700; color: var(--text); text-transform: uppercase; letter-spacing: 0.5px; }
+  .form-group input, .form-group select, .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: #fafafa;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--pink); background: white; }
+  .form-group textarea { min-height: 110px; resize: vertical; }
+  .services-check { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .check-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+  .check-item input { width: 16px; height: 16px; accent-color: var(--pink); }
+  .btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.15);
+    margin-top: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(0,0,0,0.15); }
+
+  /* WHY US */
+  .why { background: white; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .why-item { text-align: center; padding: 1.5rem 1rem; }
+  .why-item .icon { font-size: 2.5rem; margin-bottom: 0.75rem; display: block; }
+  .why-item h4 { font-family: 'Fredoka One', cursive; font-size: 1.2rem; margin-bottom: 0.4rem; color: var(--dark); }
+  .why-item p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.8);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+  .footer-logo { font-family: 'Fredoka One', cursive; font-size: 2rem; color: var(--yellow); margin-bottom: 0.5rem; }
+  footer p { font-size: 0.9rem; margin-bottom: 0.4rem; }
+  .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin: 1rem 0; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; font-weight: 700; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--yellow); }
+  .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem; }
+
+  /* CONFETTI STRIP */
+  .confetti-strip {
+    height: 8px;
+    background: repeating-linear-gradient(90deg, #FFD93D 0px, #FFD93D 20px, #FF6B35 20px, #FF6B35 40px, #FF4E8E 40px, #FF4E8E 60px, #4ECDC4 60px, #4ECDC4 80px, #A855F7 80px, #A855F7 100px);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 2.5rem; }
+    nav ul { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .services-check { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="confetti-strip"></div>
+
+<!-- ===================== NAV ===================== -->
+<nav>
+  <!-- LOGO: Replace text below with an <img> tag if you have a logo file -->
+  <!-- Example: <img src="logo.png" alt="Premier Picnics" style="height: 44px;" /> -->
+  <div class="logo">Premier<span>Picnics</span></div>
+
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#booking">Book Now</a></li>
+    <li><a href="#booking" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <!-- HERO BADGE: Edit the text inside this div -->
+  <div class="hero-badge">🎉 New Jersey's #1 Family Entertainment Co.</div>
+
+  <!-- MAIN HEADLINE: Edit text below -->
+  <h1>Where Every Party<br>Becomes a Memory!</h1>
+
+  <!-- HERO SUBTEXT: Edit text below -->
+  <p>Luxury picnic setups, costumed characters, foam parties, cotton candy & more — we bring the fun so you can enjoy every moment.</p>
+
+  <div class="hero-btns">
+    <a href="#booking" class="btn-primary">Book Your Event 🎈</a>
+    <a href="#services" class="btn-secondary">See What We Do</a>
+  </div>
+  <div class="hero-fun-icons">🎪 🫧 🍭 🎩 🎠</div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="services" id="services">
+  <div style="text-align:center; max-width:700px; margin:0 auto;">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Fun for Every Age, Every Occasion</h2>
+    <p class="section-sub center">From backyard birthdays to big block parties, we've got everything you need to throw an unforgettable celebration.</p>
+  </div>
+  <div class="services-grid">
+    <!-- SERVICE CARDS: Edit icon, title, and description for each -->
+    <div class="service-card s1">
+      <span class="icon">🧺</span>
+      <h3>Luxury Picnics</h3>
+      <p>Beautifully styled setups with cozy seating, florals, and all the little details that make it magical.</p>
+    </div>
+    <div class="service-card s2">
+      <span class="icon">🎩</span>
+      <h3>Entertainers</h3>
+      <p>Clowns, magicians, and costumed characters that kids absolutely love. Pure smiles guaranteed!</p>
+    </div>
+    <div class="service-card s3">
+      <span class="icon">🫧</span>
+      <h3>Foam Parties</h3>
+      <p>Epic foam fun for kids and adults alike. Our foam machines create a bubbly wonderland everyone loves.</p>
+    </div>
+    <div class="service-card s4">
+      <span class="icon">🍿</span>
+      <h3>Fun Foods</h3>
+      <p>Cotton candy, popcorn, snow cones & more! Our food stations add delicious color to your event.</p>
+    </div>
+    <div class="service-card s5">
+      <span class="icon">🎠</span>
+      <h3>Character Visits</h3>
+      <p>Your favorite costumed characters arrive to surprise, delight, and create lifelong memories.</p>
+    </div>
+    <div class="service-card s6">
+      <span class="icon">🎪</span>
+      <h3>Full Event Setup</h3>
+      <p>We handle everything — setup, cleanup, and all the in-between so you can be present and enjoy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PACKAGES ===================== -->
+<section class="packages" id="packages">
+  <div style="text-align:center; max-width:700px; margin:0 auto;">
+    <p class="section-label">Pricing & Packages</p>
+    <h2 class="section-title">Simple, Transparent Pricing</h2>
+    <p class="section-sub center">Choose the package that fits your vision — or let us build a custom experience just for you.</p>
+  </div>
+  <div class="packages-grid">
+    <!-- PACKAGE 1 -->
+    <div class="pkg-card">
+      <div class="pkg-name">🌸 Starter</div>
+      <div class="pkg-price">$299 <span>/ event</span></div>
+      <p class="pkg-desc">Perfect for intimate gatherings and small celebrations.</p>
+      <ul class="pkg-features">
+        <li>Luxury picnic setup (up to 6)</li>
+        <li>1 food station (choice of 2)</li>
+        <li>Basic décor & florals</li>
+        <li>2-hour event window</li>
+        <li>Setup & cleanup included</li>
+      </ul>
+      <a href="#booking" class="btn-pkg btn-pkg-outline">Book Starter</a>
+    </div>
+
+    <!-- PACKAGE 2 (FEATURED) -->
+    <div class="pkg-card featured">
+      <div class="featured-badge">🔥 Most Popular</div>
+      <div class="pkg-name">🎉 Celebration</div>
+      <div class="pkg-price">$599 <span>/ event</span></div>
+      <p class="pkg-desc">Our most loved package — everything you need for a full party experience.</p>
+      <ul class="pkg-features">
+        <li>Luxury picnic setup (up to 15)</li>
+        <li>2 food stations (cotton candy + popcorn)</li>
+        <li>1 entertainer (clown or magician)</li>
+        <li>Full décor & florals</li>
+        <li>4-hour event window</li>
+        <li>Setup & cleanup included</li>
+      </ul>
+      <a href="#booking" class="btn-pkg btn-pkg-filled">Book Celebration</a>
+    </div>
+
+    <!-- PACKAGE 3 -->
+    <div class="pkg-card">
+      <div class="pkg-name">🎪 Premier</div>
+      <div class="pkg-price">$999+ <span>/ event</span></div>
+      <p class="pkg-desc">The full Premier Picnics experience — go all out!</p>
+      <ul class="pkg-features">
+        <li>Luxury picnic setup (up to 30)</li>
+        <li>All food stations</li>
+        <li>Foam party + entertainer</li>
+        <li>2 costumed characters</li>
+        <li>Custom theme & premium décor</li>
+        <li>6-hour event window</li>
+        <li>Dedicated event coordinator</li>
+      </ul>
+      <a href="#booking" class="btn-pkg btn-pkg-outline">Book Premier</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY US ===================== -->
+<section class="why">
+  <div style="text-align:center; max-width:700px; margin:0 auto;">
+    <p class="section-label">Why Families Love Us</p>
+    <h2 class="section-title">We Take the Stress Out of Fun</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <span class="icon">🌟</span>
+      <h4>Stress-Free Planning</h4>
+      <p>We handle every detail from start to finish so you can actually enjoy your event.</p>
+    </div>
+    <div class="why-item">
+      <span class="icon">🎨</span>
+      <h4>Fully Customizable</h4>
+      <p>Every event is personalized to match your theme, color palette, and vision.</p>
+    </div>
+    <div class="why-item">
+      <span class="icon">💖</span>
+      <h4>Family-Centered</h4>
+      <p>We're a family business that genuinely cares about creating joyful moments.</p>
+    </div>
+    <div class="why-item">
+      <span class="icon">📍</span>
+      <h4>Serving New Jersey</h4>
+      <p>Based locally, we serve NJ families with quick response and personal service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BOOKING FORM ===================== -->
+<section class="booking" id="booking">
+  <div style="text-align:center; max-width:700px; margin:0 auto 2rem;">
+    <p class="section-label">Let's Make Magic</p>
+    <h2 class="section-title">Book Your Event</h2>
+    <!-- FORM INTRO: Edit subtext below -->
+    <p class="section-sub center">Fill out the form below and we'll get back to you within 24 hours with availability and a custom quote!</p>
+  </div>
+
+  <!-- FORM ACTION: To receive emails, replace action="#" with your Formspree URL -->
+  <!-- Sign up free at https://formspree.io and paste your endpoint here -->
+  <form class="form-wrap" action="#" method="POST">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="first_name" placeholder="Jane" required />
+      </div>
+      <div class="form-group">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="last_name" placeholder="Smith" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="jane@email.com" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="date">Event Date</label>
+        <input type="date" id="date" name="event_date" />
+      </div>
+      <div class="form-group">
+        <label for="guests">Number of Guests</label>
+        <input type="number" id="guests" name="guests" placeholder="e.g. 20" min="1" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="package">Package Interest</label>
+      <select id="package" name="package">
+        <option>Choose a package...</option>
+        <option>Starter ($299)</option>
+        <option>Celebration ($599)</option>
+        <option>Premier ($999+)</option>
+        <option>Custom / Not Sure Yet</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Services You're Interested In</label>
+      <div class="services-check">
+        <label class="check-item"><input type="checkbox" name="services" value="picnic" /> 🧺 Luxury Picnic</label>
+        <label class="check-item"><input type="checkbox" name="services" value="entertainers" /> 🎩 Entertainers</label>
+        <label class="check-item"><input type="checkbox" name="services" value="foam" /> 🫧 Foam Party</label>
+        <label class="check-item"><input type="checkbox" name="services" value="food" /> 🍭 Fun Foods</label>
+        <label class="check-item"><input type="checkbox" name="services" value="characters" /> 🎠 Characters</label>
+        <label class="check-item"><input type="checkbox" name="services" value="full-setup" /> 🎪 Full Setup</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="message">Tell Us About Your Event</label>
+      <textarea id="message" name="message" placeholder="Share your vision, theme ideas, or any special requests!"></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Send My Request 🎉</button>
+  </form>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <!-- FOOTER LOGO: Replace with <img> tag if you have a logo file -->
+  <div class="footer-logo">PremierPicnics</div>
+  <!-- FOOTER TAGLINE: Edit below -->
+  <p>New Jersey's favorite family entertainment company</p>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#packages">Packages</a>
+    <a href="#booking">Book Now</a>
+    <!-- CONTACT EMAIL: Replace with your real email -->
+    <a href="mailto:hello@premierpicnics.com">hello@premierpicnics.com</a>
+  </div>
+  <!-- COPYRIGHT: Update year and name as needed -->
+  <div class="footer-copy">© 2026 Premier Picnics & Entertainment. All rights reserved.</div>
+</footer>
+
+<div class="confetti-strip"></div>
+
+</body>
+</html>
