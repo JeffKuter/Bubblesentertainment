@@ -86,6 +86,30 @@
   .modal-book-btn { display: block; text-align: center; padding: 0.9rem; border-radius: 50px; font-weight: 800; font-size: 1rem; background: linear-gradient(135deg, var(--pink), var(--orange)); color: white; transition: transform 0.2s; cursor: pointer; border: none; width: 100%; font-family: 'Nunito', sans-serif; }
   .modal-book-btn:hover { transform: scale(1.03); }
 
+  /* FOAM SPOTLIGHT */
+  .foam-spotlight { background: linear-gradient(135deg, #1A1A2E 0%, #0A9E96 100%); padding: 5rem 2rem; }
+  .foam-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1100px; margin: 0 auto; align-items: center; }
+  .foam-features { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+  .foam-feature { display: flex; align-items: flex-start; gap: 1rem; background: rgba(255,255,255,0.08); border-radius: 14px; padding: 1rem 1.25rem; }
+  .foam-feature span { font-size: 1.75rem; flex-shrink: 0; }
+  .foam-feature strong { display: block; color: white; font-size: 0.95rem; margin-bottom: 0.2rem; }
+  .foam-feature p { color: rgba(255,255,255,0.7); font-size: 0.85rem; line-height: 1.5; margin: 0; }
+  .foam-cta { display: inline-block; background: #4ECDC4; color: #1A1A2E; padding: 0.9rem 2rem; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 0 rgba(0,0,0,0.2); }
+  .foam-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(0,0,0,0.2); }
+  .foam-pkg-card { background: white; border-radius: 24px; padding: 2rem; text-align: center; position: relative; }
+  .foam-pkg-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #4ECDC4; color: #1A1A2E; font-size: 0.75rem; font-weight: 800; padding: 4px 16px; border-radius: 50px; white-space: nowrap; }
+  .foam-pkg-icon { font-size: 3.5rem; margin-bottom: 0.75rem; }
+  .foam-pkg-card h3 { font-family: 'Fredoka One', cursive; font-size: 1.6rem; color: var(--dark); margin-bottom: 0.5rem; line-height: 1.2; }
+  .foam-pkg-price { font-size: 2.8rem; font-weight: 800; color: #0A9E96; margin: 0.75rem 0 0.25rem; }
+  .foam-pkg-price span { font-size: 1rem; color: var(--text-light); font-weight: 600; }
+  .foam-pkg-desc { font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.25rem; line-height: 1.5; }
+  .foam-pkg-list { list-style: none; margin-bottom: 1.5rem; text-align: left; }
+  .foam-pkg-list li { padding: 0.4rem 0; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px dashed #f0f0f0; color: var(--text); }
+  .foam-pkg-list li::before { content: '🫧'; font-size: 0.85rem; }
+  .foam-pkg-btn { display: block; padding: 0.9rem; border-radius: 50px; font-weight: 800; font-size: 1rem; text-decoration: none; background: linear-gradient(135deg, #0A9E96, #4ECDC4); color: white; transition: transform 0.2s; }
+  .foam-pkg-btn:hover { transform: scale(1.03); }
+  @media (max-width: 768px) { .foam-content { grid-template-columns: 1fr; gap: 2rem; } }
+
   /* WHY US */
   .why { background: var(--cream); }
   .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
@@ -165,6 +189,7 @@
   </a>
   <ul>
     <li><a href="#services">Services</a></li>
+    <li><a href="#foam-parties">Foam Parties</a></li>
     <li><a href="#booking">Book Now</a></li>
     <li><a href="#booking" class="nav-cta">Get a Quote</a></li>
   </ul>
@@ -375,6 +400,66 @@
   </div>
 </div>
 
+<!-- FOAM PARTY SPOTLIGHT SECTION -->
+<section class="foam-spotlight" id="foam-parties">
+  <div class="foam-content">
+    <div class="foam-text">
+      <p class="section-label" style="color:#4ECDC4;">🫧 Featured Experience</p>
+      <h2 class="section-title" style="color:white;">Dive into a<br>Foam Frenzy!</h2>
+      <p style="font-size:1.1rem; color:rgba(255,255,255,0.9); line-height:1.7; margin-bottom:1.5rem;">Want to make your event truly unforgettable? Our foam parties are the answer! Our hypoallergenic, eco-friendly foam is 100% safe for kids, pets, and the planet. Imagine a world of laughter and joy as everyone dives into a sea of bubbles!</p>
+      <div class="foam-features">
+        <div class="foam-feature">
+          <span>🫧</span>
+          <div>
+            <strong>Foam Dance Party Cannon</strong>
+            <p>Our powerful cannon fills the space with mountains of safe, fluffy foam!</p>
+          </div>
+        </div>
+        <div class="foam-feature">
+          <span>🎵</span>
+          <div>
+            <strong>Sound System & Music</strong>
+            <p>We bring the beats to keep the energy high all party long.</p>
+          </div>
+        </div>
+        <div class="foam-feature">
+          <span>🏖️</span>
+          <div>
+            <strong>Beach Balls & Fun</strong>
+            <p>Extra party accessories included to make it a full experience.</p>
+          </div>
+        </div>
+        <div class="foam-feature">
+          <span>🌿</span>
+          <div>
+            <strong>Eco-Friendly & Safe</strong>
+            <p>Hypoallergenic foam — safe for all ages, kids, and pets.</p>
+          </div>
+        </div>
+      </div>
+      <a href="#booking" class="foam-cta">Book a Foam Party 🫧</a>
+    </div>
+    <div class="foam-package">
+      <div class="foam-pkg-card">
+        <div class="foam-pkg-badge">⭐ Our Package</div>
+        <div class="foam-pkg-icon">🫧</div>
+        <h3>Bubbles Deluxe<br>Foam Package</h3>
+        <div class="foam-pkg-price">$400<span>/hr</span></div>
+        <p class="foam-pkg-desc">The ultimate foam party experience — 1 hour of crazy foam fun for your party or event!</p>
+        <ul class="foam-pkg-list">
+          <li>Foam Dance Party Cannon</li>
+          <li>Professional Foam Cannon</li>
+          <li>Sound System & Music</li>
+          <li>Beach Balls included</li>
+          <li>Additional hours: +$200/hr</li>
+          <li>Free travel within 45 miles of Lakehurst, NJ</li>
+        </ul>
+        <a href="#booking" class="foam-pkg-btn">Book Now 🎉</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHY US -->
 <section class="why">
   <div style="text-align:center; max-width:700px; margin:0 auto;">
@@ -414,8 +499,8 @@
     <!-- ✏️ BOOKING DESCRIPTION -->
     <p class="section-sub center">Fill out the form below and we'll get back to you within 24 hours with availability and a custom quote!</p>
   </div>
-  <!-- ✏️ FORM ACTION: Sign up free at formspree.io and replace action="#" with your form URL -->
-  <form class="form-wrap" action="#" method="POST">
+  <!-- ✏️ FORM ACTION: Formspree URL — submissions go to bubblesentertainmentnj@gmail.com -->
+  <form class="form-wrap" action="https://formspree.io/f/mnjwlqbr" method="POST">
     <div class="form-row">
       <div class="form-group">
         <label>First Name</label>
